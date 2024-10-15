@@ -1,0 +1,16 @@
+{
+  "name": "Proyecto Sakila",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node --watch index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mysql2": "^3.11.3",
+    "sequelize": "^6.37.4"
+  }
+}
