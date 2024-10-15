@@ -1,0 +1,55 @@
+# Hola mundo
+GET http://localhost:3000/
+
+###
+
+# Traer todos los actores
+GET http://localhost:3000/actors
+
+###
+
+# Crear un actor
+POST http://localhost:3000/actors
+Content-Type: application/json
+
+{
+  "first_name": "Tom",
+  "last_name": "Hanks"
+}
+
+###
+
+# Traer todos los peliculones
+GET http://localhost:3000/films
+
+###
+
+# Crear una peli
+POST http://localhost:3000/films
+Content-Type: application/json
+
+{
+  "title": "Forrest Gump", 
+  "description": "Forrest Gump, un joven sureño, tenaz e inocente, es protagonista de acontecimientos cruciales en la historia de los Estados Unidos.", 
+  "release_year": 1994
+}
+
+###
+
+# Asociar actor a una peli
+POST http://localhost:3000/actors/239/films/1028
+
+###
+
+# Traer todos los actores y sus pelis
+GET http://localhost:3000/actors/films
+
+###
+
+# Traer todas las pelis y sus actores 
+GET http://localhost:3000/films/actors
+
+###
+
+# Traer el actor y sus pelis
+GET http://localhost:3000/actors/3/films

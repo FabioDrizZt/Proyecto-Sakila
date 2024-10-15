@@ -23,7 +23,7 @@ const FilmActor = sequelize.define('FilmActor', {
   timestamps: false
 })
 
-// Relacionar tablas
+// Definir las relaciones
 Actor.belongsToMany(Film, { through: FilmActor, foreignKey: 'actor_id' })
 Film.belongsToMany(Actor, { through: FilmActor, foreignKey: 'film_id' })
 
