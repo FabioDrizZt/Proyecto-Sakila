@@ -53,3 +53,24 @@ GET http://localhost:3000/films/actors
 
 # Traer el actor y sus pelis
 GET http://localhost:3000/actors/3/films
+
+###
+
+# Crear un actor
+POST http://localhost:3000/actors/bulk
+Content-Type: application/json
+
+[
+  {
+  "first_name": "Scarlett",
+  "last_name": "Joganson"
+  },
+  {
+    "first_name": "Ricardo ",
+    "last_name": "Darin"
+  },
+  {
+    "first_name": "Guillermo",
+    "last_name": "Francella"
+  }
+]

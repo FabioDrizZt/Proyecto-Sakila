@@ -23,6 +23,17 @@ app.get('/actors', async (req, res) => {
   }
 })
 
+app.post('/actors/bulk', async (req, res) => {
+  try {
+    const actors = req.body
+    // Validar que sea un array, validar la longitud, validar los parametros
+    const createdActors = await Actor.bulkCreate(actors)
+    res.status(201).json(createdActors)
+  } catch (error) {
+    res.status(500).send({ error: 'no se pudo crear el actor' })
+  }
+})
+
 app.post('/actors', async (req, res) => {
   try {
     // eslint-disable-next-line
@@ -63,10 +74,12 @@ app.post('/actors/:actorId/films/:filmId', async (req, res) => {
     const actor = await Actor.findByPk(actorId)
     const film = await Film.findByPk(filmId)
 
-    if (!actor || !film) {
-      res.status(404).send({ error: 'no se encontro el actor o la peli' })
+    if (!actor) {
+      res.status(404).send({ error: 'no se encontro el actor ' })
     }
-
+    if (!film) {
+      res.status(404).send({ error: 'no se encontro  la peli' })
+    }
     await film.addActor(actor)
     res.status(201).json({ message: 'Actor y peli asociada correctamente' })
   } catch (error) {
